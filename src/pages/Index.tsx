@@ -6,6 +6,7 @@ import Icon from '@/components/ui/icon';
 const Index = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<number | null>(null);
   const [isWarCultureOpen, setIsWarCultureOpen] = useState(false);
+  const [isSelfGovernmentOpen, setIsSelfGovernmentOpen] = useState(false);
 
   const artworks = [
     {
@@ -148,6 +149,32 @@ const Index = () => {
                       </p>
                       <p className="text-sm text-muted-foreground italic mt-4">
                         (Репортаж Алексея Комарова)
+                      </p>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="mb-8">
+              <Card 
+                className="border-2 border-accent/30 cursor-pointer hover:border-accent transition-colors duration-300"
+                onClick={() => setIsSelfGovernmentOpen(!isSelfGovernmentOpen)}
+              >
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-between">
+                    <h4 className="text-2xl font-serif font-semibold text-primary">Самоуправление</h4>
+                    <Icon 
+                      name={isSelfGovernmentOpen ? "ChevronUp" : "ChevronDown"} 
+                      size={28} 
+                      className="text-accent transition-transform duration-300"
+                    />
+                  </div>
+                  
+                  {isSelfGovernmentOpen && (
+                    <div className="mt-6 pt-6 border-t border-border animate-fade-in">
+                      <p className="text-lg leading-relaxed text-foreground/90">
+                        Независимость и традиционные ценности
                       </p>
                     </div>
                   )}
