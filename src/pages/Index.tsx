@@ -5,6 +5,7 @@ import Icon from '@/components/ui/icon';
 
 const Index = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<number | null>(null);
+  const [isWarCultureOpen, setIsWarCultureOpen] = useState(false);
 
   const artworks = [
     {
@@ -125,6 +126,35 @@ const Index = () => {
       <section id="sholokhov" className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
+            <div className="mb-8">
+              <Card 
+                className="border-2 border-accent/30 cursor-pointer hover:border-accent transition-colors duration-300"
+                onClick={() => setIsWarCultureOpen(!isWarCultureOpen)}
+              >
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-between">
+                    <h4 className="text-2xl font-serif font-semibold text-primary">Воинская культура</h4>
+                    <Icon 
+                      name={isWarCultureOpen ? "ChevronUp" : "ChevronDown"} 
+                      size={28} 
+                      className="text-accent transition-transform duration-300"
+                    />
+                  </div>
+                  
+                  {isWarCultureOpen && (
+                    <div className="mt-6 pt-6 border-t border-border animate-fade-in">
+                      <p className="text-lg leading-relaxed text-foreground/90">
+                        Казаков всегда отправляли на важнейшие рубежи страны, где больше никто не выстоит. Служили и кровь проживали они не за награду, а за свободу, Родину и православную веру. Казаки - победители. Они рождают настроение в обществе, считают, что нет ничего невозможного, особенно когда речь заходит о границах нашей страны.
+                      </p>
+                      <p className="text-sm text-muted-foreground italic mt-4">
+                        (Репортаж Алексея Комарова)
+                      </p>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            </div>
+
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="animate-fade-in">
                 <img 
